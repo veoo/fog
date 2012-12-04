@@ -12,6 +12,7 @@ module Fog
       requires :xenserver_password
       requires :xenserver_url
       recognizes :xenserver_defaults
+      recognizes :xenserver_port
       
       model_path 'fog/xenserver/models/compute'
       model :server
