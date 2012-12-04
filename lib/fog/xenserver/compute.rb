@@ -66,8 +66,9 @@ module Fog
           @host        = options[:xenserver_url]
           @username    = options[:xenserver_username]
           @password    = options[:xenserver_password]
+          @port        = options[:xenserver_port] || 80
           @defaults    = options[:xenserver_defaults] || {}
-          @connection  = Fog::XenServer::Connection.new(@host)
+          @connection  = Fog::XenServer::Connection.new(@host, @port)
           @connection.authenticate(@username, @password)
         end
 

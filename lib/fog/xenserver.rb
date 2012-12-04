@@ -12,8 +12,9 @@ module Fog
     class Connection
       require 'xmlrpc/client'
     
-      def initialize(host)
-        @factory = XMLRPC::Client.new(host, '/')
+      def initialize(host, port=nil)
+        xmlrpc_port = port || 80
+        @factory = XMLRPC::Client.new(host, '/', xmlrpc_port)
         @factory.set_parser(XMLRPC::XMLParser::REXMLStreamParser.new)
       end
     
